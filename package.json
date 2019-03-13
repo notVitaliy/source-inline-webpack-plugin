@@ -1,0 +1,33 @@
+{
+  "name": "source-inline-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Inline your assets.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "release": "npm run build && npm publish"
+  },
+  "author": "Vitaliy Isikov (https://github.com/notVitaliy)",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:notVitaliy/source-inline-webpack-plugin.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/html-webpack-plugin": "^3.2.0",
+    "@types/node": "^11.11.3",
+    "@types/semver": "^5.5.0",
+    "@types/webpack": "^4.4.25",
+    "html-webpack-plugin-4.0.0-beta.5": "npm:html-webpack-plugin@4.0.0-beta.5",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "inline-source": "^6.1.9",
+    "semver": "^5.6.0"
+  },
+  "peerDependencies": {
+    "html-webpack-plugin": ">3.0.0 || >2.0.0",
+    "webpack": ">4.0.0 || > 3.0.0"
+  }
+}
