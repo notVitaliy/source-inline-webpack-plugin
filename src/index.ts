@@ -1,8 +1,7 @@
-import webpack, { Plugin } from 'webpack'
-
+import webpack from 'webpack'
 import { apply } from './apply'
 
-export class HtmlInlineSourcePlugin extends Plugin {
+export class HtmlInlineSourcePlugin {
   apply(compiler: webpack.Compiler) {
     return apply(compiler)
   }
