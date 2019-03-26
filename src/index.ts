@@ -1,4 +1,4 @@
-import webpack = require('webpack')
+import webpack from 'webpack'
 
 import { apply } from './apply'
 
