@@ -21,5 +21,5 @@ export const processInlineHtml = async (data, cb) => {
   const devInlineOpts = { attribute: 'inline' }
   data.html = await inlineSource(data.html, devInlineOpts)
 
-  cb(null, data)
+  return data
 }
