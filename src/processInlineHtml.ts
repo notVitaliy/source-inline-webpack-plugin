@@ -2,7 +2,7 @@ import { inlineSource } from 'inline-source'
 
 const handlers = []
 
-if (process.env.NODE_ENV === 'production' && !process.env.INLINE_PROD) {
+if (process.env.NODE_ENV !== 'production' && !process.env.INLINE_PROD) {
   const handler = function(source) {
     source.content = ' '
     source.replace = ' '
@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production' && !process.env.INLINE_PROD) {
   handlers.push(handler)
 }
 
-export const processInlineHtml = async (data, cb) => {
+export const processInlineHtml = async data => {
   const prodInlineOpts: Record<string, any> = { attribute: 'inline-prod' }
   if (handlers.length) prodInlineOpts.handlers = handlers
 
