@@ -13,7 +13,7 @@ $ npm install source-inline-webpack-plugin --save-dev
 Install the plugin with yarn:
 
 ```shell
-$ yarn source-inline-webpack-plugin --dev
+$ yarn add source-inline-webpack-plugin --dev
 ```
 
 ## Basic Usage
@@ -42,7 +42,7 @@ Will generate:
 
 ## Advanced Usage
 
-There is also the `inline-prod` attribute, which will _only_ inline the asset if `NODE_ENV === 'production'` or the env variable `INLINE_PROD` is truthy. Otherwise, it removes the script tag from the HTML document. This is useful for analytics scripts that should only be included in production environments.
+There is also the `inline-prod` and `inline-staging` attributes, which will _only_ inline the asset if `NODE_ENV === '[production|staging]'` or the env variable `INLINE_[PROD|STAGING]` is truthy. Otherwise, it removes the script tag from the HTML document. This is useful for analytics scripts that should only be included in production environments.
 
 If not a production environemnt
 
@@ -50,6 +50,7 @@ If not a production environemnt
 <html>
   <head>
     <script inline src="./example.js"></script>
+    <script inline-staging src="./example-staging.js"></script>
     <script inline-prod src="./example-prod.js"></script>
   </head>
 </html>
@@ -67,12 +68,40 @@ Will generate:
 </html>
 ```
 
+If on a staging environment
+
+```html
+<html>
+  <head>
+    <script inline src="./example.js"></script>
+    <script inline-staging src="./example-staging.js"></script>
+    <script inline-prod src="./example-prod.js"></script>
+  </head>
+</html>
+```
+
+Will generate:
+
+```html
+<html>
+  <head>
+    <script>
+      const example = 'js'
+    </script>
+    <script>
+      const exampleStaging = 'staging'
+    </script>
+  </head>
+</html>
+```
+
 If on a production environment
 
 ```html
 <html>
   <head>
     <script inline src="./example.js"></script>
+    <script inline-staging src="./example-staging.js"></script>
     <script inline-prod src="./example-prod.js"></script>
   </head>
 </html>
